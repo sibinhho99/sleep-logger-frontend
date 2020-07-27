@@ -1,6 +1,6 @@
 html {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("https://image.freepik.com/free-photo/sky-full-stars-silhouettes-trees_181624-12446.jpg")
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),   /* For overlay so that white texts are readable*/
+    url(night_background.svg)
       no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;

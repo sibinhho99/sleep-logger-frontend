@@ -46,7 +46,7 @@ export default class Summary extends React.Component {
       })
     );
     const LEVEL_LABELS = ["None", "Low", "Medium", "High"];
-    return XYData.sort((first, second) => LEVEL_LABELS.indexOf(first.x) >= loMedHi.indexOf(second.x));
+    return XYData.sort((first, second) => LEVEL_LABELS.indexOf(first.x) >= LEVEL_LABELS.indexOf(second.x));
   };
 
   // Converts data from backend into LineChart format

@@ -1,3 +1,3 @@
-Frontend: React, Material UI. https://shielded-forest-59797.herokuapp.com 
-  * Test email: test1@gmail.com
+Frontend: React, Material UI. https://sleep-logger.herokuapp.com . Sample account:
+  * Email: test1@gmail.com
   * Password: Abcd1234

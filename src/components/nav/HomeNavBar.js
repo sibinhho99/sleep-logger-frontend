@@ -7,7 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import Hidden from "@material-ui/core/Hidden";
-import LoggedInMenuList from "./LoggedInMenuList";
+import NightsStayIcon from '@material-ui/icons/NightsStay';
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -33,6 +34,9 @@ export default function HomeNavBar(props) {
   return (
     <AppBar position="static">
       <Toolbar>
+        <Box px={"0.75%"}>
+          <NightsStayIcon style={{ fontSize: "25" }} />
+        </Box>
         <Typography variant="h6" className={classes.title}>
           Sleep Logger
         </Typography>

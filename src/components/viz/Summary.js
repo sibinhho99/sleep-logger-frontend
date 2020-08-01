@@ -26,7 +26,7 @@ export default class Summary extends React.Component {
   }
 
   handleMorningFeelingChange = (e, newToggling) => {
-    this.setState({ morningFeeling: newToggling });
+    this.setState({ morningFeeling: newToggling }, this.updateData);
   };
 
   // Converts data from backend into BarChart input format
@@ -70,8 +70,7 @@ export default class Summary extends React.Component {
     return XYData.sort((a, b) => (a.x === "Yes" ? -1 : 1));
   };
 
-  componentDidMount() {
-
+  updateData = () => {
     const headers = {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
@@ -86,62 +85,29 @@ export default class Summary extends React.Component {
     };
 
     Object.keys(params).forEach((key) =>
-      url.searchParams.append(key, params[key])
+        url.searchParams.append(key, params[key])
     );
 
     fetch(url, {
       method: "GET",
       headers: headers,
     })
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({
-          hoursData: this.toLineChartData(data, "hours"),
-          caffeineMorning: this.toBarChartData(data, "caffeine_morning"),
-          caffeineAfternoon: this.toBarChartData(data, "caffeine_afternoon"),
-          caffeineEvening: this.toBarChartData(data, "caffeine_evening"),
-          napMorning: this.toPieData(data, "nap_morning"),
-          napAfternoon: this.toPieData(data, "nap_afternoon"),
-          napEvening: this.toPieData(data, "nap_evening"),
+        .then((res) => res.json())
+        .then((data) => {
+          this.setState({
+            hoursData: this.toLineChartData(data, "hours"),
+            caffeineMorning: this.toBarChartData(data, "caffeine_morning"),
+            caffeineAfternoon: this.toBarChartData(data, "caffeine_afternoon"),
+            caffeineEvening: this.toBarChartData(data, "caffeine_evening"),
+            napMorning: this.toPieData(data, "nap_morning"),
+            napAfternoon: this.toPieData(data, "nap_afternoon"),
+            napEvening: this.toPieData(data, "nap_evening"),
+          });
         });
-      });
   }
 
-  componentDidUpdate() {
-
-    const headers = {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-      Authorization: "Bearer " + localStorage.getItem("token"),
-    };
-
-    let url = new URL(BASE_URL + "/v1/graphing");
-
-    const params = {
-      morning_feeling: this.state.morningFeeling,
-    };
-
-    Object.keys(params).forEach((key) =>
-      url.searchParams.append(key, params[key])
-    );
-
-    fetch(url, {
-      method: "GET",
-      headers: headers,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({
-          hoursData: this.toLineChartData(data, "hours"),
-          caffeineMorning: this.toBarChartData(data, "caffeine_morning"),
-          caffeineAfternoon: this.toBarChartData(data, "caffeine_afternoon"),
-          caffeineEvening: this.toBarChartData(data, "caffeine_evening"),
-          napMorning: this.toPieData(data, "nap_morning"),
-          napAfternoon: this.toPieData(data, "nap_afternoon"),
-          napEvening: this.toPieData(data, "nap_evening"),
-        });
-      });
+  componentDidMount() {
+    this.updateData();
   }
 
   render() {

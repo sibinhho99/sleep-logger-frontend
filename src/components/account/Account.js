@@ -16,8 +16,8 @@ export default function Account(props) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [
-    passwordConfirmationNotMachingSnackbarOpen,
-    setPasswordConfirmationNotMachingSnackbarOpen,
+    passwordConfirmationNotMatchingSnackbarOpen,
+    setPasswordConfirmationNotMatchingSnackbarOpen,
   ] = useState(false);
   const [emptyFieldSnackbarOpen, setEmptyFieldSnackbarOpen] = useState(false);
   const [userCreatedSnackbarOpen, setUserCreatedSnackbarOpen] = useState(false);
@@ -102,7 +102,7 @@ export default function Account(props) {
     }
 
     if (password !== passwordConfirmation) {
-      setPasswordConfirmationNotMachingSnackbarOpen(true);
+      setPasswordConfirmationNotMatchingSnackbarOpen(true);
       return;
     }
 
@@ -223,7 +223,8 @@ export default function Account(props) {
       </Box>
 
       <Snackbar
-        open={passwordConfirmationNotMachingSnackbarOpen}
+        open={passwordConfirmationNotMatchingSnackbarOpen}
+        onClose={() => setPasswordConfirmationNotMatchingSnackbarOpen(false)}
         autoHideDuration={3000}
       >
         <MuiAlert severity={"error"}>
@@ -231,7 +232,10 @@ export default function Account(props) {
         </MuiAlert>
       </Snackbar>
 
-      <Snackbar open={invalidNameSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={invalidNameSnackbarOpen}
+                autoHideDuration={3000}
+                onClose={() => setInvalidNameSnackbarOpen(false)}
+      >
         <MuiAlert severity={"error"}>
           We only accept names between 2 and 30 characters inclusive, with only
           lowercase letters, uppercase letters and whitespaces. Sorry if we
@@ -239,24 +243,35 @@ export default function Account(props) {
         </MuiAlert>
       </Snackbar>
 
-      <Snackbar open={emptyFieldSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={emptyFieldSnackbarOpen}
+                onClose={() => setEmptyFieldSnackbarOpen(false)}
+                autoHideDuration={3000}
+      >
         <MuiAlert severity={"error"}>One or more field is empty.</MuiAlert>
       </Snackbar>
 
-      <Snackbar open={invalidEmailSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={invalidEmailSnackbarOpen}
+                autoHideDuration={3000}
+                onClose={() => setInvalidEmailSnackbarOpen(false)}
+      >
         <MuiAlert severity={"error"}>Invalid email.</MuiAlert>
       </Snackbar>
 
-      <Snackbar open={passwordTooShortSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={passwordTooShortSnackbarOpen}
+                onClose={() => setPasswordTooShortSnackbarOpen(false)}
+                autoHideDuration={3000}>
         <MuiAlert severity={"error"}>Password is too short.</MuiAlert>
       </Snackbar>
 
-      <Snackbar open={passwordTooLongSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={passwordTooLongSnackbarOpen}
+                onClose={() => setPasswordTooLongSnackbarOpen(false)}
+                autoHideDuration={3000}>
         <MuiAlert severity={"error"}>Password is too long.</MuiAlert>
       </Snackbar>
 
       <Snackbar
         open={passwordMustContainUppercaseSnackbarOpen}
+        onClose={() => setPasswordMustContainUppercaseOpen(false)}
         autoHideDuration={3000}
       >
         <MuiAlert severity={"error"}>
@@ -266,6 +281,7 @@ export default function Account(props) {
 
       <Snackbar
         open={passwordMustContainLowercaseSnackbarOpen}
+        onClose={() => setPasswordMustContainLowercaseSnackbarOpen(false)}
         autoHideDuration={3000}
       >
         <MuiAlert severity={"error"}>
@@ -273,13 +289,17 @@ export default function Account(props) {
         </MuiAlert>
       </Snackbar>
 
-      <Snackbar open={passwordMustContainNumberOpen} autoHideDuration={3000}>
+      <Snackbar open={passwordMustContainNumberOpen}
+                onClose={() => setPasswordMustContainNumberOpen(false)}
+                autoHideDuration={3000}>
         <MuiAlert severity={"error"}>
           Password must have at least one number.
         </MuiAlert>
       </Snackbar>
 
-      <Snackbar open={userCreatedSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={userCreatedSnackbarOpen}
+                onClose={() => setUserCreatedSnackbarOpen(false)}
+                autoHideDuration={3000}>
         <MuiAlert severity={"success"}>
           User created. Please proceed to login. Redirecting...
         </MuiAlert>

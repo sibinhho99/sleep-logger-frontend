@@ -201,13 +201,19 @@ export default function Register() {
         </Paper>
       </Box>
 
-      <Snackbar open={passwordSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={passwordSnackbarOpen}
+                onClose={() => setPasswordSnackbarOpen(false)}
+                autoHideDuration={3000}
+      >
         <MuiAlert severity={"error"}>
           Password and password confirmation do not match.
         </MuiAlert>
       </Snackbar>
 
-      <Snackbar open={invalidNameSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={invalidNameSnackbarOpen}
+                onClose={() => setInvalidNameSnackbarOpen(false)}
+                autoHideDuration={3000}
+      >
         <MuiAlert severity={"error"}>
           We only accept names between 2 and 30 characters inclusive, with only
           lowercase letters, uppercase letters and whitespaces. Sorry if we
@@ -215,24 +221,35 @@ export default function Register() {
         </MuiAlert>
       </Snackbar>
 
-      <Snackbar open={emptyFieldSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={emptyFieldSnackbarOpen}
+                autoHideDuration={3000}
+                onClose={() => setEmptyFieldSnackbarOpen(false)}
+      >
         <MuiAlert severity={"error"}>One or more field is empty.</MuiAlert>
       </Snackbar>
 
-      <Snackbar open={invalidEmailSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={invalidEmailSnackbarOpen}
+                onClose={() => setInvalidEmailSnackbarOpen(false)}
+                autoHideDuration={3000}>
         <MuiAlert severity={"error"}>Invalid email.</MuiAlert>
       </Snackbar>
 
-      <Snackbar open={passwordTooShortSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={passwordTooShortSnackbarOpen}
+                autoHideDuration={3000}
+                onClose={() => setPasswordTooShortSnackbarOpen(false)}
+      >
         <MuiAlert severity={"error"}>Password is too short.</MuiAlert>
       </Snackbar>
 
-      <Snackbar open={passwordTooLongSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={passwordTooLongSnackbarOpen}
+                onClose={() => setPasswordTooLongSnackbarOpen(false)}
+                autoHideDuration={3000}>
         <MuiAlert severity={"error"}>Password is too long.</MuiAlert>
       </Snackbar>
 
       <Snackbar
         open={passwordMustContainUppercaseSnackbarOpen}
+        onClose={() => setPasswordMustContainLowercaseSnackbarOpen(false)}
         autoHideDuration={3000}
       >
         <MuiAlert severity={"error"}>
@@ -242,6 +259,7 @@ export default function Register() {
 
       <Snackbar
         open={passwordMustContainLowercaseSnackbarOpen}
+        onClose={() => setPasswordMustContainLowercaseSnackbarOpen(false)}
         autoHideDuration={3000}
       >
         <MuiAlert severity={"error"}>
@@ -249,13 +267,19 @@ export default function Register() {
         </MuiAlert>
       </Snackbar>
 
-      <Snackbar open={passwordMustContainNumberOpen} autoHideDuration={3000}>
+      <Snackbar open={passwordMustContainNumberOpen}
+                onClose={() => setPasswordMustContainNumberOpen(false)}
+                autoHideDuration={3000}
+      >
         <MuiAlert severity={"error"}>
           Password must have at least one number.
         </MuiAlert>
       </Snackbar>
 
-      <Snackbar open={userCreatedSnackbarOpen} autoHideDuration={3000}>
+      <Snackbar open={userCreatedSnackbarOpen}
+                onClose={() => setUserCreatedSnackbarOpen(false)}
+                autoHideDuration={3000}
+      >
         <MuiAlert severity={"success"}>
           User created. Please proceed to login. Redirecting...
         </MuiAlert>

@@ -153,11 +153,13 @@ export default function DiaryMorningPage(props) {
         open={saveEntrySnackbarOpen}
         autoHideDuration={3000}
         message={"Entry saved."}
+        onClose={() => setSaveEntrySnackbarOpen(false)}
       />
       <Snackbar
         open={wrongHoursSnackbarOpen}
         autoHideDuration={3000}
-        message={"Wrong sleeping hours."}
+        message={"Invalid sleeping hours. Wake up time should be later than sleep time."}
+        onClose={() => setWrongHoursSnackbarOpen(false)}
       />
     </div>
   );

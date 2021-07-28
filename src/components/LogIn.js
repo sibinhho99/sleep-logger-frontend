@@ -9,6 +9,7 @@ import Auth from "./Auth";
 import HomeNavBar from "./nav/HomeNavBar";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default function LogIn(props) {
   const [email, setEmail] = useState("");
@@ -17,6 +18,8 @@ export default function LogIn(props) {
     invalidCredentialsSnackbarOpen,
     setInvalidCredentialsSnackbarOpen,
   ] = React.useState(false);
+
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const history = useHistory();
 
@@ -36,13 +39,17 @@ export default function LogIn(props) {
           <Box p={"5%"}>
             <form
               onSubmit={(e) => {
+                setIsLoading(true)
                 e.preventDefault();
                 Auth.login(
                   { email: email, password: password },
                   () => {
                     history.push("/diary");
                   },
-                  () => setInvalidCredentialsSnackbarOpen(true)
+                  () => {
+                    setIsLoading(false)
+                    setInvalidCredentialsSnackbarOpen(true)
+                  }
                 );
               }}
             >
@@ -68,6 +75,7 @@ export default function LogIn(props) {
                 />
               </Box>
               <Box p={"2%"} align={"center"}>
+                {isLoading && <div><CircularProgress color="secondary" /><br/><br/></div>}
                 <Button type="submit" variant="outlined" color="primary">
                   Sign In
                 </Button>

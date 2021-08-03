@@ -55,12 +55,12 @@ function Hero() {
     <div>
       <Box p={"3%"} pb={"5%"} align={"center"}>
         <Box pb={3}>
-          <Typography variant="h3">Your personal sleep diary.</Typography>
+          <Typography variant="h3">Your personal sleep diary</Typography>
         </Box>
         <Box pb={3}>
           <Typography variant="h5">
             Understand yourself and regain control of your sleep, for what
-            matters.
+            matters
           </Typography>
         </Box>
         <Button
@@ -69,7 +69,7 @@ function Hero() {
           component={Link}
           to="/register"
         >
-          Sign up for free!
+          Sign up for free
         </Button>
       </Box>
     </div>
@@ -91,7 +91,7 @@ function Feature() {
               </td>
               <td width={"60%"} align={"left"}>
                 <Typography variant="h5">
-                  Log your sleeps, naps, caffeine intake, and mood.{" "}
+                  Log your sleeps, naps, caffeine intake, and mood
                 </Typography>
               </td>
             </tr>
@@ -104,7 +104,7 @@ function Feature() {
                 <PhoneIphoneIcon style={{ fontSize: 80 }} />
               </td>
               <td width={"60%"} align={"left"}>
-                <Typography variant="h5">Mobile app.</Typography>
+                <Typography variant="h5">Mobile app</Typography>
               </td>
             </tr>
           </table>
@@ -116,7 +116,7 @@ function Feature() {
                 <BarChartIcon style={{ fontSize: 80 }} />
               </td>
               <td width={"60%"} align={"left"}>
-                <Typography variant="h5">Trends visualization.</Typography>
+                <Typography variant="h5">Trends visualization</Typography>
               </td>
             </tr>
           </table>
@@ -142,7 +142,7 @@ function Feature() {
                 <DoneAllIcon style={{ fontSize: 80 }} />
               </td>
               <td width={"60%"} align={"left"}>
-                <Typography variant="h5">Tip of the day.</Typography>
+                <Typography variant="h5">Tip of the day</Typography>
               </td>
             </tr>
           </table>

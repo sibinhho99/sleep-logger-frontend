@@ -28,7 +28,7 @@ export default function LoggedInNavBar(props) {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
-          SleepLogger
+          Sleep Logger
         </Typography>
         <Hidden smDown>
           <Button color="inherit" component={Link} to="/diary">

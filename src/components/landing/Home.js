@@ -142,7 +142,7 @@ function Feature() {
                 <DoneAllIcon style={{ fontSize: 80 }} />
               </td>
               <td width={"60%"} align={"left"}>
-                <Typography variant="h5">Tips of the day.</Typography>
+                <Typography variant="h5">Tip of the day.</Typography>
               </td>
             </tr>
           </table>

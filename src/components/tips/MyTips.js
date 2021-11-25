@@ -6,7 +6,8 @@ import DeletableTipBox from "./DeletableTipBox";
 import LoggedInNavBar from "../nav/LoggedInNavBar";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import {BASE_TEXT_COLOR, BASE_URL} from "../../configs/configs";
+import {BASE_URL} from "../../configs/configs";
+import {Card} from "@material-ui/core";
 
 export default function MyTips(props) {
   const [tips, setTips] = useState([]);
@@ -52,20 +53,24 @@ export default function MyTips(props) {
             {/*empty*/}
           </Grid>
           <Grid container item md={4} sm={6} xs={12}>
-            <Box p={"5%"}>
-              <Typography variant={"h5"} color={BASE_TEXT_COLOR}>
-                You have not saved any tip. Time to save some!
-              </Typography>
-              <Box p={"2%"}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  component={Link}
-                  to="/diary"
-                >
-                  Take me to my diary
-                </Button>
+            <Box p={"5%"} align={"center"}>
+            <Card>
+              <Box p={3} align={"center"}>
+                <Typography variant={"h6"} color={"textPrimary"}>
+                  You have not saved any tip. Time to save some!
+                </Typography>
+                <Box p={"2%"}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    component={Link}
+                    to="/diary"
+                  >
+                    Take me to my diary
+                  </Button>
+                </Box>
               </Box>
+            </Card>
             </Box>
           </Grid>
           <Grid container item md={4} sm={6} xs={12}>

@@ -110,6 +110,7 @@ export default function Diary(props) {
       <Snackbar
         open={saveTipSnackbarOpen}
         autoHideDuration={3000}
+        onClose={() => setSaveTipSnackbarOpen(false)}
         message={"Tip saved."}
       />
     </div>

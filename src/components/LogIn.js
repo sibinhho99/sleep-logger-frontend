@@ -84,8 +84,11 @@ export default function LogIn(props) {
           </Box>
         </Paper>
       </Box>
-      <Snackbar open={invalidCredentialsSnackbarOpen} autoHideDuration={3000}>
-        <MuiAlert severity="error">Wrong email or password.</MuiAlert>
+      <Snackbar open={invalidCredentialsSnackbarOpen}
+                autoHideDuration={3000}
+                onClose={() => setInvalidCredentialsSnackbarOpen(false)}
+      >
+        <MuiAlert severity="error">Wrong email or password. Please try again.</MuiAlert>
       </Snackbar>
     </div>
   );

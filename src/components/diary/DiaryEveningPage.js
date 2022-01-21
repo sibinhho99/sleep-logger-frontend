@@ -63,7 +63,7 @@ export default function DiaryEveningPage(props) {
       method: "POST",
       headers: headers,
       body: JSON.stringify(body),
-    }).then((setSaveEntrySnackbarOpen: true));
+    }).then((setSaveEntrySnackbarOpen(true)));
   };
 
   return (
@@ -158,6 +158,7 @@ export default function DiaryEveningPage(props) {
 
       <Snackbar
         open={saveEntrySnackbarOpen}
+        onClose={() => setSaveEntrySnackbarOpen(false)}
         autoHideDuration={3000}
         message={"Entry saved."}
       />
